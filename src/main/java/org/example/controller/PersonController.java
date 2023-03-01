@@ -63,10 +63,10 @@ public class PersonController {
      *
      * @return JsonItem<PersonDto>
      */
-    @Operation(summary = "Сохранение ФЛ", method = "POST")
+    @Operation(summary = "Сохранение ФЛ", method = "GET")
     @ApiResponse(responseCode = "200", description = "Список ФЛ",
             content = @Content(schema = @Schema(implementation = PersonDto.class)))
-    @PostMapping(value = "/", produces = MediaType.APPLICATION_JSON_VALUE)
+    @GetMapping(value = "/", produces = MediaType.APPLICATION_JSON_VALUE)
     public JsonItem<PersonDto> save(@RequestBody PersonDto dto) {
         Person person = service.save(dto);
         return JsonItemFactory.successResult(mapper.mapFromEntity(person));
