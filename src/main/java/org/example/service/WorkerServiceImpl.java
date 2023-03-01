@@ -30,6 +30,9 @@ public class WorkerServiceImpl implements WorkerService {
                 Person person = repository.findByPersonId(dto.getId());
                 person.setDocumentRequired(true);
                 repository.save(person);
+
+                // Сохранение дефолтного документа, привязанного к person
+                // createAndSaveDefaultDocument(dto.getId());
             }
         });
     }
